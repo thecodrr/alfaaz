@@ -8,7 +8,8 @@
     "test:coverage": "vitest run tests/ --coverage",
     "bench": "ts-node benches/lines.ts && ts-node benches/words.ts",
     "build": "tsc",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "prepublishOnly": "npm run build"
   },
   "author": "Abdullah Atta <thecodrr@protonmail.com>",
   "license": "MIT",

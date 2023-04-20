@@ -1,5 +1,5 @@
 {
-  "name": "alfaz",
+  "name": "alfaaz",
   "version": "1.0.0",
   "description": "The fastest multilingual word counter that can count millions of words per second.",
   "main": "dist/index.js",

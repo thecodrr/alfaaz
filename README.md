@@ -57,7 +57,7 @@ const totalLines = countLines(text);
 
 ## Benchmarks
 
-You can run these benchmarks yourself:
+The code for these benchmarks can be found in [`benches/`](/benches/). You can also run these benchmarks yourself:
 
 ```
 npm run bench

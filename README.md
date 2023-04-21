@@ -6,13 +6,17 @@
 
 Alfaaz is the fastest multilingual word counter that can count millions of words per second (up to 0.9 GB/s 100x faster than RegExp based solutions). It has built-in support for CJK texts & words in many different languages such as Urdu & Arabic.
 
-**Features:**
+## Features:
 
-- The fastest (millions of words per second)
-- Multilingual
-- 100% tested TypeScript code
-- 0 dependencies
-- Lightweight (< 1KB)
+⚡**The fastest**: `alfaaz` can count millions of words per second. There's nothing in the NodeJS/JavaScript world that can come even close.
+
+🈸 **Multilingual**: `alfaaz` support counting words in multiple languages like Chinese, Japanese etc.
+
+🧪 100% tested TypeScript code
+
+♾️ 0 dependencies
+
+🪶 Lightweight (< 1KB)
 
 ## Installation
 

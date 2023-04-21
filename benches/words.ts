@@ -58,7 +58,7 @@ async function runBenchmark(name: string, text: string) {
               1024 /
               1024
             ).toString(),
-            Math.round(countWords(text) * result.hz),
+            countWords(text) * Math.round(result.hz),
           ]
         : []
     ),

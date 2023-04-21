@@ -84,16 +84,16 @@ export function countWords(str: string) {
     const byteIndex = Math.floor(charCode / BYTE_SIZE);
     const bitIndex = charCode % BYTE_SIZE;
 
-    const charType = (BITMAP[byteIndex] >> bitIndex) & 1;
-    if (charType) {
-      if (!shouldCount && charCode < CHINESE_MIN_CODE_POINT) continue;
-      count++;
-      shouldCount = false;
-    } else shouldCount = true;
+    const isMatch = (BITMAP[byteIndex] >> bitIndex) & 1;
+
+    // @ts-ignore allow JS to naturally coerce boolean into a number
+    count += isMatch && (shouldCount || charCode > CHINESE_MIN_CODE_POINT);
+    shouldCount = !isMatch;
   }
 
-  // @ts-ignore
+  // @ts-ignore allow JS to naturally coerce boolean into a number
   count += shouldCount;
+
   return count;
 }
 

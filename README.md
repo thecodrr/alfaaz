@@ -184,7 +184,7 @@ for (let i = 0; i < text.length; ++i) {
   const byteIndex = Math.floor(charCode / BYTE_SIZE);
   const bitIndex = charCode % BYTE_SIZE;
 
-  count += (BITMAP[byteIndex] >> bitIndex) & 1;
+  count += (bitmap[byteIndex] >> bitIndex) & 1;
 }
 ```
 

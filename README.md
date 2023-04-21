@@ -114,9 +114,9 @@ Node: v18.15.0
 
 `alfaaz` was born out of need. I needed to count words (and fast!) in [Notesnook](https://github.com/streetwriters/notesnook) as the user types in the editor. Traditional `RegExp` based solutions became noticeably slower after 10K words.
 
-Counting words is not an uncommon need. Having a fast word counter can greatly increase your productivity. Ultimately the goal is to make all software operate with you having to wait for it.
+Counting words is not an uncommon need. Having a fast word counter can greatly increase your productivity. Ultimately the goal is to make all software operate without you having to wait for it.
 
-At its current speed, `alfaaz` can handle millions of words per second.
+At its current speed, `alfaaz` can easily handle millions of words per second.
 
 ## What's the secret sauce?
 

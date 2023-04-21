@@ -238,6 +238,12 @@ Summary
 
 This is to be expected since just the startup time of NodeJS is > 21ms.
 
+## A note on multilingual support
+
+While `alfaaz` tries to be multilingual, it doesn't accurately understand word boundaries and fallbacks to counting characters. Where this differs from `str.length` is how it supports counting words in multiple languages in the same text so if you gave `alfaaz` some text that had a mix of Chinese, Korean, English & Urdu, it will still work.
+
+With that said, if you are a native speaker and know of a more accurate way to count words in your language, open an issue so we can discuss it further.
+
 ## Other projects
 
 1. [fdir](https://github.com/thecodrr/fdir) - The fastest NodeJS directory crawler & globber.

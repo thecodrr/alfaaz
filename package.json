@@ -1,6 +1,6 @@
 {
   "name": "alfaaz",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The fastest multilingual word counter that can count millions of words per second.",
   "main": "dist/index.js",
   "scripts": {

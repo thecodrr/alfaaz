@@ -48,3 +48,15 @@ test("chinese text", () => {
 test("chinese text with punctuation & whitespace", () => {
   expect(countWords("夫未战而庙算胜者，得算多也")).toBe(12);
 });
+
+const languages = {
+  khmer: [`អ្នក​សុខសប្បាយ​ទេ`, 15],
+  thai: [`สบายดีไหม`, 9],
+  lao: [`ສະ​ບາຍ​ດີ​ບໍ?`, 9],
+};
+for (let lang in languages) {
+  test(`${lang} text`, () => {
+    const [text, expected] = languages[lang];
+    expect(countWords(text)).toBe(expected);
+  });
+}

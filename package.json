@@ -12,6 +12,10 @@
     "prepublishOnly": "npm run build"
   },
   "author": "Abdullah Atta <thecodrr@protonmail.com>",
+  "repository": {
+    "url": "https://github.com/thecodrr/alfaaz",
+    "type": "git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.15.11",

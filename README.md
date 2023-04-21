@@ -166,7 +166,7 @@ A better solution would be to use a `Uint8Array` but instead of using up 1 byte 
 ```ts
 const BYTE_SIZE = 8; // a byte is 8 bits
 const LENGTH = 32 / BYTE_SIZE;
-const bitmap = new Uint8Array(LENGTH);
+const bitmap = new Uint8Array(LENGTH + 1);
 
 const charCode = 32;
 const byteIndex = Math.floor(charCode / BYTE_SIZE);

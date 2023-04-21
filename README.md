@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/alfaaz.jpg" width="600px" style="border-radius: 25px;" />
+    <img src="https://raw.githubusercontent.com/thecodrr/alfaaz/master/assets/alfaaz.jpg" width="600px" style="border-radius: 25px;" />
 </p>
 
 <h1 align="center">Alfaaz</h1>

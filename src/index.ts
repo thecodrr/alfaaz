@@ -43,7 +43,8 @@ insertCharsIntoMap(
   "?",
   "=",
   "\u0F0B", // Tibetan uses [U+0F0B TIBETAN MARK INTERSYLLABIC TSHEG] (pronounced tsek) to signal the end of a syllable.
-  "\u1361" // Ethiopic text uses the traditional wordspace character ፡ [U+1361 ETHIOPIC WORDSPACE] to indicate word boundaries
+  "\u1361", // Ethiopic text uses the traditional wordspace character [U+1361 ETHIOPIC WORDSPACE] to indicate word boundaries
+  "\u200b" // ZERO-WIDTH-SPACE can also be considered a word boundary
 );
 
 for (const range of UNICODE_RANGES) {
@@ -58,11 +59,13 @@ export function countWords(str: string) {
     const charCode = str.charCodeAt(i);
     const byteIndex = Math.floor(charCode / BYTE_SIZE);
     const bitIndex = charCode % BYTE_SIZE;
+    const byteAtIndex = BITMAP[byteIndex];
+    const isMatch = ((byteAtIndex >> bitIndex) & 1) === 1;
 
-    const isMatch = (BITMAP[byteIndex] >> bitIndex) & 1;
-
+    // 255 means this is probably a Unicode range match in which case
+    // we should ignore the value of shouldCount
     // @ts-ignore allow JS to naturally coerce boolean into a number
-    count += isMatch && (shouldCount || charCode > CHINESE_MIN_CODE_POINT);
+    count += isMatch && (shouldCount || byteAtIndex === 255);
     shouldCount = !isMatch;
   }
 

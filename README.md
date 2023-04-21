@@ -214,6 +214,26 @@ I don't think the workload is well-suited for parallelization. For one, even the
 
 I may be wrong so do your own testing.
 
+### How does this compare to `wc`?
+
+`alfaaz` is much, much slower. Here's a quick benchmark I did with the Rust based `coreutils`.
+
+```
+Benchmark 1: coreutils wc -w .\benches\data\gulliver.txt
+  Time (mean ± σ):      21.2 ms ±   1.7 ms    [User: 2.5 ms, System: 5.2 ms]
+  Range (min … max):    18.1 ms …  27.4 ms    73 runs
+
+Benchmark 2: node test.js
+  Time (mean ± σ):     131.3 ms ±   9.1 ms    [User: 31.3 ms, System: 22.3 ms]
+  Range (min … max):   123.4 ms … 151.2 ms    20 runs
+
+Summary
+  'coreutils wc -w .\benches\data\gulliver.txt' ran
+    6.18 ± 0.65 times faster than 'node test.js'
+```
+
+This is to be expected since just the startup time of NodeJS is > 21ms.
+
 ## Other projects
 
 1. [fdir](https://github.com/thecodrr/fdir) - The fastest NodeJS directory crawler & globber.

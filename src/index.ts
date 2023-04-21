@@ -1,3 +1,5 @@
+import { UNICODE_RANGES } from "./languages";
+
 const CHINESE_MAX_CODE_POINT = 205743;
 const CHINESE_MIN_CODE_POINT = 11904;
 const BYTE_SIZE = 8;
@@ -39,41 +41,14 @@ insertCharsIntoMap(
   ".",
   ",",
   "?",
-  "="
+  "=",
+  "\u0F0B", // Tibetan uses [U+0F0B TIBETAN MARK INTERSYLLABIC TSHEG] (pronounced tsek) to signal the end of a syllable.
+  "\u1361" // Ethiopic text uses the traditional wordspace character ፡ [U+1361 ETHIOPIC WORDSPACE] to indicate word boundaries
 );
 
-// CJK Unified Ideographs                     4E00-9FFF   Common
-insertRangeIntoMap(19968, 40959);
-// CJK Unified Ideographs Extension A         3400-4DBF   Rare
-insertRangeIntoMap(13312, 19903);
-// CJK Unified Ideographs Extension B       20000-2A6DF Rare, historic
-insertRangeIntoMap(131072, 173791);
-// CJK Unified Ideographs Extension C       2A700–2B73F Rare, historic
-insertRangeIntoMap(173824, 177983);
-// CJK Unified Ideographs Extension D       2B740–2B81F Uncommon, some in current use
-insertRangeIntoMap(177984, 178207);
-// CJK Unified Ideographs Extension E       2B820–2CEAF Rare, historic
-insertRangeIntoMap(178208, 183983);
-// CJK Unified Ideographs Extension F       2CEB0–2EBEF  Rare, historic
-insertRangeIntoMap(183984, 191471);
-// CJK Unified Ideographs Extension G       30000–3134F  Rare, historic
-insertRangeIntoMap(196608, 201551);
-// CJK Unified Ideographs Extension H       31350–323AF Rare, historic
-insertRangeIntoMap(201552, 205743);
-// CJK Compatibility Ideographs               F900-FAFF   Duplicates, unifiable variants, corporate characters
-insertRangeIntoMap(63744, 64255);
-// CJK Compatibility Ideographs Supplement  2F800-2FA1F Unifiable variants
-insertRangeIntoMap(194560, 195103);
-// CJK Radicals / Kangxi Radicals             2F00–2FDF
-insertRangeIntoMap(12032, 12255);
-// CJK Radicals Supplement                    2E80–2EFF
-insertRangeIntoMap(11904, 12031);
-// CJK Symbols and Punctuation                3000–303F
-insertRangeIntoMap(12288, 12351);
-// CJK Compatibility                          3300-33FF
-insertRangeIntoMap(13056, 13311);
-// CJK Compatibility Forms                     FE30-FE4F
-insertRangeIntoMap(65072, 65103);
+for (const range of UNICODE_RANGES) {
+  insertRangeIntoMap(range[0], range[1]);
+}
 
 export function countWords(str: string) {
   let count = 0;

@@ -108,7 +108,7 @@ Node: v18.15.0
 
 ## Use case
 
-`alfaaz` was born out of need. I needed to count words (and fast!) in Notesnook as the user types in the editor. Traditional `RegExp` based solutions became noticeably slower after 10K words.
+`alfaaz` was born out of need. I needed to count words (and fast!) in [Notesnook](https://github.com/streetwriters/notesnook) as the user types in the editor. Traditional `RegExp` based solutions became noticeably slower after 10K words.
 
 Counting words is not an uncommon need. Having a fast word counter can greatly increase your productivity. Ultimately the goal is to make all software operate with you having to wait for it.
 
@@ -213,3 +213,7 @@ I haven't done any benchmarking but sending the text to WebAssembly runtime agai
 I don't think the workload is well-suited for parallelization. For one, even the slowest solution is way faster than spinning up a worker. Secondly, transferring data to a worker would take longer than the actual processing.
 
 I may be wrong so do your own testing.
+
+## Other projects
+
+1. [fdir](https://github.com/thecodrr/fdir) - The fastest NodeJS directory crawler & globber.

@@ -57,20 +57,18 @@ export function countWords(str: string) {
 
   for (let i = 0; i < str.length; i++) {
     const charCode = str.charCodeAt(i);
-    const byteIndex = Math.floor(charCode / BYTE_SIZE);
+    const byteIndex = (charCode / BYTE_SIZE) | 0;
     const bitIndex = charCode % BYTE_SIZE;
     const byteAtIndex = BITMAP[byteIndex];
     const isMatch = ((byteAtIndex >> bitIndex) & 1) === 1;
 
     // 255 means this is probably a Unicode range match in which case
     // we should ignore the value of shouldCount
-    // @ts-ignore allow JS to naturally coerce boolean into a number
-    count += isMatch && (shouldCount || byteAtIndex === 255);
+    if (isMatch && (shouldCount || byteAtIndex === 255)) count++;
     shouldCount = !isMatch;
   }
 
-  // @ts-ignore allow JS to naturally coerce boolean into a number
-  count += shouldCount;
+  if (shouldCount) count++;
 
   return count;
 }
